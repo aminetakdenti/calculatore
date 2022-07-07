@@ -1,0 +1,192 @@
+/* !Start Globale Variables */
+:root {
+  /**Colors*/
+  /* ?Theme 1 */
+  /* #### Backgrounds */
+
+  --Very-dark-desaturated-blue-main-background/*(main background)*/: hsl(
+    222,
+    26%,
+    31%
+  );
+  --Very-dark-desaturated-blue-toggle/*(toggle background, keypad background)*/: hsl(
+    223,
+    31%,
+    20%
+  );
+  --Very-dark-desaturated-blue/*(screen background)*/: hsl(224, 36%, 15%);
+
+  /* #### Keys */
+
+  --Desaturated-dark-blue-key/*(key background)*/: hsl(225, 21%, 49%);
+  --Desaturated-dark-blue/*(key shadow)*/: hsl(224, 28%, 35%);
+
+  --Red/*(key background, toggle)*/: hsl(6, 63%, 50%);
+  --Dark-red/*(key shadow)*/: hsl(6, 70%, 34%);
+
+  --Light-grayish-orange/*(key background)*/: hsl(30, 25%, 89%);
+  --Grayish-orange/*(key shadow)*/: hsl(28, 16%, 65%);
+
+  /* #### Text */
+
+  --Very-dark-grayish-blue: hsl(221, 14%, 31%);
+  --White: rgb(255, 255, 255);
+}
+/* !End Globale Variables */
+
+/* !Start Globale Rules */
+* {
+  box-sizing: border-box;
+  transition: 0.3s;
+  margin: 0;
+}
+body {
+  font-family: "League Spartan", sans-serif;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--Very-dark-desaturated-blue-main-background);
+}
+/* !End Globale Rules */
+
+/*! ------------------------------- Start Clac ------------------------------ */
+.calc {
+  width: fit-content;
+  padding: 30px;
+}
+
+/* ?Start Head */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--White);
+}
+.head .themes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* !Start btn Toggle */
+
+.theme-slide-button {
+  height: 20px;
+  width: 60px;
+  background-color: var(--Very-dark-desaturated-blue-toggle);
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+.theme-slide-button span {
+  display: block;
+  height: 20px;
+  width: 30px;
+  border-radius: 50%;
+  position: relative;
+  counter-increment: i;
+}
+.theme-slide-button span::before {
+  content: counter(i);
+  font-size: 15px;
+  position: absolute;
+  font-weight: 700;
+  top: -80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.theme-slide-button button {
+  background-color: var(--Dark-red);
+  display: block;
+  border: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-20px);
+}
+.theme-slide-button button:hover {
+  background-color: var(--Red);
+  cursor: pointer;
+}
+/* !End btn Toggle */
+.head .themes p {
+  text-transform: uppercase;
+  margin: auto 20px auto 80px;
+  font-size: 12px;
+}
+.head .themes input {
+  width: 60px;
+  padding: 10px;
+  height: 20px;
+}
+/* ?End Head */
+
+/* ?Start Calculater Screen */
+.screen {
+  width: 100%;
+  padding: 25px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: end;
+  background-color: var(--Very-dark-desaturated-blue);
+  border-radius: 10px;
+  color: var(--White);
+  margin: 20px auto;
+}
+/* ?End Calculater Screen */
+
+/* ?Start Calculater Keys */
+.keys {
+  padding: 30px;
+  background-color: var(--Very-dark-desaturated-blue-toggle);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.keys div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  padding: 8px;
+  color: var(--Very-dark-grayish-blue);
+  background-color: var(--Light-grayish-orange);
+  border-radius: 7px;
+  box-shadow: 0px 3px var(--Grayish-orange);
+  transition: 0.3s;
+}
+.keys div:hover {
+  cursor: pointer;
+  background-color: hsl(30, 25%, 99%);
+}
+.keys .reset {
+  grid-area: 5/1/5/3;
+  background-color: var(--Desaturated-dark-blue-key);
+  box-shadow: 0px 3px var(--Desaturated-dark-blue);
+  color: var(--Light-grayish-orange);
+}
+.keys .del {
+  background-color: var(--Desaturated-dark-blue-key);
+  box-shadow: 0px 3px var(--Desaturated-dark-blue);
+  color: var(--Light-grayish-orange);
+}
+.keys .reset:hover,
+.keys .del:hover {
+  background-color: hsl(225, 21%, 59%);
+}
+.keys .e {
+  color: var(--Light-grayish-orange);
+  box-shadow: 0px 3px var(--Dark-red);
+  background-color: var(--Red);
+  grid-area: 5/3/5/5;
+}
+.keys .e:hover {
+  background-color: hsl(6, 63%, 60%);
+}
+/* ?End Calculater Keys */
+
+/*! -------------------------------- End Clac -------------------------------- */
